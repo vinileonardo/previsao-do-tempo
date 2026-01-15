@@ -1,0 +1,7 @@
+{
+  "name": "Previsão do Tempo",
+  "description": "Um aplicativo de relaxamento com chuva visual, sons de trovão gerados aleatoriamente e feedback tátil (vibração).",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
