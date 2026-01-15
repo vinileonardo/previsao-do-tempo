@@ -5,29 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Previsão do Tempo</title>
     
-    <!-- GOOGLE ANALYTICS (Gtag) - Substitua G-SEU_ID_ANALYTICS pelo seu ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SEU_ID_ANALYTICS"></script>
+    <!-- GOOGLE ANALYTICS (Gtag) -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      const ANALYTICS_ID = import.meta.env.VITE_GOOGLE_ANALYTICS_ID;
+      if (ANALYTICS_ID && ANALYTICS_ID !== 'G-SEU_ID_ANALYTICS') {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_ID}`;
+        document.head.appendChild(script);
 
-      gtag('config', 'G-SEU_ID_ANALYTICS');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', ANALYTICS_ID);
+      }
     </script>
-
-    <!-- GOOGLE ADSENSE - Substitua ca-pub-SEU_ID_ADSENSE pelo seu ID -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-SEU_ID_ADSENSE"
-     crossorigin="anonymous"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      body, html {
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      body {
         margin: 0;
         padding: 0;
         width: 100%;
         height: 100%;
         overflow: hidden;
         background-color: #0f172a; /* Slate 900 */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      #root {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
       }
       /* Custom animation for clouds */
       @keyframes float {
