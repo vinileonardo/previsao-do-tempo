@@ -19,7 +19,7 @@ O Google Analytics (GA4) é uma ferramenta gratuita do Google que permite monito
 **Tempo de setup**: ~5 minutos
 
 ---
-
+ 
 ## 📋 Passo a Passo
 
 ### Passo 1: Acessar o Google Analytics
